@@ -11,10 +11,10 @@ use wry::WebViewBuilder;
 
 fn main() -> wry::Result<()> {
   let event_loop = EventLoop::new();
-  let window = WindowBuilder::new().with_decorations(false).with_fullscreen(true).build(&event_loop).unwrap();
+  let window = WindowBuilder::new().with_decorations(false).build(&event_loop).unwrap();
 
   let builder = WebViewBuilder::new()
-    .with_url("file:///home/ben/Development/HomePlayer/HomePlayer_Client/System/main.html")
+    .with_url("file:///home/ben/Development/HomePlayer/HomePlayer_Client/src/html/main.html")
     .with_new_window_req_handler(|url, features| {
       println!("new window req: {url} {features:?}");
       wry::NewWindowResponse::Allow

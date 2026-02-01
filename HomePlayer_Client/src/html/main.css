@@ -1,3 +1,7 @@
+* {
+    outline:1px solid red;
+}
+
 @font-face {
     font-family: 'MainFont'; /* Name you’ll use in CSS */
     src: url('../data/Lexend/Lexend-VariableFont_wght.ttf') format('truetype');
@@ -256,7 +260,7 @@ display:block;
 
 
 .media-grid {
-	width:100vw;
+	width:98vw;
     display: flex;
     flex-wrap: wrap;
     padding: 2vw 1vw;
@@ -313,11 +317,11 @@ display:block;
     display: flex;
     overflow-x: auto;
     gap: 1rem;
-    padding: 1rem;
 /*
     scroll-snap-type: x mandatory;
 */
     padding-left:2vw;
+    padding-top:1vh;
     width:98vw;
 }
 
