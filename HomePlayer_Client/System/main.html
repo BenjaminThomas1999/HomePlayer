@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ben's Media Player</title>
+
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+<div id="music-screen">
+    <header>
+		<h1></h1>
+		<img src="icons/sort.svg" class="sort-icon">
+		<img src="icons/filter.svg" class="filter-icon">
+		<img src="icons/deep-search.svg" class="search-icon" id="music-database-search-btn"   tabindex="-1">
+
+
+		<input
+			class="library-search-field"
+			id="music-library-search-field"
+			data-kioskboard-type="keyboard"
+			data-kioskboard-placement="bottom"
+			data-kioskboard-specialcharacters="false"
+			placeholder="Search the shelf for music"
+		/>		
+		<input
+			class="database-search-field"
+			id="music-database-search-field"
+			data-kioskboard-type="keyboard"
+			data-kioskboard-placement="bottom"
+			data-kioskboard-specialcharacters="false"
+			placeholder="Search the library (10TB) for music"
+		/>
+	</header>
+      
+	<div id="music-shortcuts">
+		<div class="heading-row">
+			<h2>Recent Albums</h2>
+			<h5>See all ></h5>
+		</div>
+		<div class="album-row hide-scrollbar">
+			<div class="album">
+				<img src="../../media/Music/Sigh no More/art.jpg">
+				<p class="title">Sigh No More</p>
+                <p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="album">
+				<img src="../../media/Music/peppers.jpg">
+				<p class="title">Sigh No More</p>
+                <p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="album">
+				<img src="../../media/Music/gorillaz">
+				<p class="title">Sigh No More</p>
+                <p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="album">
+				<img src="../../media/Music/Sigh no More/art.jpg">
+				<p class="title">Sigh No More</p>
+                <p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="album">
+				<img src="../../media/Music/Sigh no More/art.jpg">
+				<p class="title">Sigh No More</p>
+                <p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="album">
+				<img src="../../media/Music/Sigh no More/art.jpg">
+				<p class="title">Sigh No More</p>
+                <p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="album">
+				<img src="../../media/Music/Sigh no More/art.jpg">
+				<p class="title">Sigh No More</p>
+                <p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="album">
+				<img src="../../media/Music/Sigh no More/art.jpg">
+				<p class="title">Sigh No More</p>
+                <p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="album">
+				<img src="../../media/Music/Sigh no More/art.jpg">
+				<p class="title">Sigh No More</p>
+                <p class="artist">Mumford & Sons</p>
+			</div>
+		</div>
+		
+		<div class="heading-row">
+			<h2>Recent Playlists</h2>
+			<h5>See all ></h5>
+		</div>
+		
+		<div class="playlist-row hide-scrollbar">
+			<div class="playlist">
+				<img src="../../media/Music/Playlist/saved_songs.png">
+				<p class="title">Saved Songs (pinned)</p>
+			</div>
+			<div class="playlist">
+				<img src="../../media/Music/Playlist/bens_songs.png">
+				<p class="title">Ben's Music (pinned)</p>
+			</div>
+			<div class="playlist">
+				<img src="../../media/Music/Playlist/ellas_songs.png">
+				<p class="title">Ella's Music (pinned)</p>
+			</div>
+			<div class="playlist">
+				<img src="../../media/Music/Playlist/art.jpg">
+				<p class="title">Bassy Bangers</p>
+			</div>
+		</div>
+		
+		<div class="heading-row">
+			<h2>Saved Music</h2>
+		</div>
+		
+		<label class="toggle-button">
+			<input type="checkbox" id="albums-toggle">
+			<span>Albums</span>
+		</label>
+		<label class="toggle-button">
+			<input type="checkbox" id="playlists-toggle">
+			<span>Playlists</span>
+		</label>
+		<label class="toggle-button">
+			<input type="checkbox" id="artists-toggle">
+			<span>Artists</span>
+		</label>
+		
+		<h5>Sort by:</h5>
+		
+		<label class="toggle-button-small">
+			<input type="checkbox" id="artists-toggle" value="checked">
+			<span>Alphabet</span>
+		</label>
+		<label class="toggle-button-small">
+			<input type="checkbox" id="artists-toggle">
+			<span>Release Date</span>
+		</label>
+		<label class="toggle-button-small">
+			<input type="checkbox" id="artists-toggle">
+			<span>Playcount</span>
+		</label>
+		
+		
+		<h4>Filter:</h4>
+
+		<h5>Genres:</h5>
+
+		<!-- Core popular genres -->
+		<label class="toggle-button-small">
+			<input type="checkbox" id="genre-select-pop">
+			<span>Pop</span>
+		</label>
+
+		<label class="toggle-button-small">
+			<input type="checkbox" id="genre-select-rock">
+			<span>Rock</span>
+		</label>
+
+		<label class="toggle-button-small">
+			<input type="checkbox" id="genre-select-hiphop">
+			<span>Hip-Hop</span>
+		</label>
+
+		<label class="toggle-button-small">
+			<input type="checkbox" id="genre-select-rnb">
+			<span>R&amp;B</span>
+		</label>
+
+		<label class="toggle-button-small">
+			<input type="checkbox" id="genre-select-electronic">
+			<span>Electronic</span>
+		</label>
+
+		<label class="toggle-button-small">
+			<input type="checkbox" id="genre-select-jazz">
+			<span>Jazz</span>
+		</label>
+
+		<label class="toggle-button-small">
+			<input type="checkbox" id="genre-select-classical">
+			<span>Classical</span>
+		</label>
+		
+		<!-- POP -->
+		<h5>Pop</h5>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-synth"><span>Synth Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-dance"><span>Dance Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-electro"><span>Electropop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-poprock"><span>Pop Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-teen"><span>Teen Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-indie"><span>Indie Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-art"><span>Art Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-dream"><span>Dream Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-kpop"><span>K-Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-jpop"><span>J-Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-latin"><span>Latin Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-europop"><span>Europop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-hyper"><span>Hyperpop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-chamber"><span>Chamber Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-folk"><span>Folk Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-acoustic"><span>Acoustic Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-adult"><span>Adult Contemporary</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-power"><span>Power Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-viral"><span>Viral Pop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="pop-mainstream"><span>Mainstream Pop</span></label>
+
+		<!-- ROCK -->
+		<h5>Rock</h5>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-roll"><span>Rock &amp; Roll</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-classic"><span>Classic Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-pop"><span>Pop Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-alt"><span>Alternative Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-indie"><span>Indie Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-hard"><span>Hard Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-prog"><span>Progressive Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-psych"><span>Psychedelic Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-punk"><span>Punk Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-postpunk"><span>Post-Punk</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-garage"><span>Garage Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-blues"><span>Blues Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-folk"><span>Folk Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-glam"><span>Glam Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-arena"><span>Arena Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-art"><span>Art Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-post"><span>Post-Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-math"><span>Math Rock</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-shoegaze"><span>Shoegaze</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rock-southern"><span>Southern Rock</span></label>
+
+		<!-- HIP-HOP -->
+		<h5>Hip-Hop</h5>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-oldschool"><span>Old School</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-boombap"><span>Boom Bap</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-trap"><span>Trap</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-drill"><span>Drill</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-gangsta"><span>Gangsta Rap</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-conscious"><span>Conscious</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-alt"><span>Alternative</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-jazz"><span>Jazz Rap</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-cloud"><span>Cloud Rap</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-melodic"><span>Melodic Rap</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-underground"><span>Underground</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-uk"><span>UK Hip-Hop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-grime"><span>Grime</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-emo"><span>Emo Rap</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-horror"><span>Horrorcore</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-freestyle"><span>Freestyle</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-battle"><span>Battle Rap</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-lofi"><span>Lofi Hip-Hop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-southern"><span>Southern Rap</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="hiphop-westcoast"><span>West Coast</span></label>
+
+		<!-- R&B -->
+		<h5>R&amp;B</h5>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-soul"><span>Soul</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-neosoul"><span>Neo-Soul</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-contemporary"><span>Contemporary R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-alt"><span>Alternative R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-funk"><span>Funk</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-quietstorm"><span>Quiet Storm</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-smooth"><span>Smooth R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-urban"><span>Urban</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-jazz"><span>Jazz R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-gospel"><span>Gospel R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-80s"><span>80s R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-90s"><span>90s R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-lofi"><span>Lofi R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-trap"><span>Trap-Soul</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-electro"><span>Electro R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-pop"><span>Pop R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-indie"><span>Indie R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-chill"><span>Chill R&amp;B</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-retro"><span>Retro Soul</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="rnb-modern"><span>Modern R&amp;B</span></label>
+
+		<!-- ELECTRONIC -->
+		<h5>Electronic</h5>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-house"><span>House</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-techno"><span>Techno</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-dnb"><span>Drum &amp; Bass</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-dubstep"><span>Dubstep</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-trance"><span>Trance</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-ambient"><span>Ambient</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-idm"><span>IDM</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-breaks"><span>Breakbeat</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-garage"><span>UK Garage</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-hardcore"><span>Hardcore</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-jungle"><span>Jungle</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-electro"><span>Electro</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-minimal"><span>Minimal</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-progressive"><span>Progressive</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-synthwave"><span>Synthwave</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-vaporwave"><span>Vaporwave</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-futurebass"><span>Future Bass</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-glitch"><span>Glitch</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-chill"><span>Chillstep</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="elec-ebm"><span>EBM</span></label>
+
+		<!-- JAZZ -->
+		<h5>Jazz</h5>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-swing"><span>Swing</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-bebop"><span>Bebop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-hardbop"><span>Hard Bop</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-cool"><span>Cool Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-modal"><span>Modal Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-fusion"><span>Jazz Fusion</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-free"><span>Free Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-smooth"><span>Smooth Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-vocal"><span>Vocal Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-latin"><span>Latin Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-gypsy"><span>Gypsy Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-bigband"><span>Big Band</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-avant"><span>Avant-Garde</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-contemporary"><span>Contemporary Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-spiritual"><span>Spiritual Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-ethno"><span>Ethno Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-piano"><span>Piano Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-guitar"><span>Guitar Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-trad"><span>Trad Jazz</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="jazz-modern"><span>Modern Jazz</span></label>
+
+		<!-- CLASSICAL -->
+		<h5>Classical</h5>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-baroque"><span>Baroque</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-classical"><span>Classical Period</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-romantic"><span>Romantic</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-modern"><span>Modern</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-contemporary"><span>Contemporary</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-choral"><span>Choral</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-opera"><span>Opera</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-symphony"><span>Symphonic</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-chamber"><span>Chamber</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-piano"><span>Piano</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-violin"><span>Violin</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-sacred"><span>Sacred</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-orchestral"><span>Orchestral</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-minimal"><span>Minimalism</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-early"><span>Early Music</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-film"><span>Film Score</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-avant"><span>Avant-Garde</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-ballet"><span>Ballet</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-suite"><span>Suite</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="classical-tone"><span>Tone Poem</span></label>
+		
+		<!-- MOODS -->
+		<h5>Mood</h5>
+
+		<label class="toggle-button-small"><input type="checkbox" id="mood-happy"><span>Happy</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-energetic"><span>Energetic</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-chill"><span>Chill</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-calm"><span>Calm</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-dark"><span>Dark</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-melancholic"><span>Melancholic</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-aggressive"><span>Aggressive</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-romantic"><span>Romantic</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-uplifting"><span>Uplifting</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-atmospheric"><span>Atmospheric</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-epic"><span>Epic</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-introspective"><span>Introspective</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-dreamy"><span>Dreamy</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-gritty"><span>Gritty</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-playful"><span>Playful</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-hopeful"><span>Hopeful</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-tense"><span>Tense</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-relaxed"><span>Relaxed</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-somber"><span>Somber</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="mood-motivational"><span>Motivational</span></label>
+
+		<!-- DECADES -->
+		<h5>Decade</h5>
+
+		<label class="toggle-button-small"><input type="checkbox" id="decade-1950s"><span>50s</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="decade-1960s"><span>60s</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="decade-1970s"><span>70s</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="decade-1980s"><span>80s</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="decade-1990s"><span>90s</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="decade-2000s"><span>2000s</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="decade-2010s"><span>2010s</span></label>
+		<label class="toggle-button-small"><input type="checkbox" id="decade-2020s"><span>2020s</span></label>
+
+
+		
+		
+		<div class="media-grid">
+			<div class="media-card">
+				<img src="../../media/Music/Sigh no More/art.jpg" alt="Album 1">
+				<p class="title">Sigh No More</p>
+				<p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="media-card">
+				<img src="../../media/Music/Sigh no More/art.jpg" alt="Album 1">
+				<p class="title">Sigh No More</p>
+				<p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="media-card">
+				<img src="../../media/Music/Sigh no More/art.jpg" alt="Album 1">
+				<p class="title">Sigh No More</p>
+				<p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="media-card">
+				<img src="../../media/Music/Sigh no More/art.jpg" alt="Album 1">
+				<p class="title">Sigh No More</p>
+				<p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="media-card">
+				<img src="../../media/Music/Sigh no More/art.jpg" alt="Album 1">
+				<p class="title">Sigh No More</p>
+				<p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="media-card">
+				<img src="../../media/Music/Sigh no More/art.jpg" alt="Album 1">
+				<p class="title">Sigh No More</p>
+				<p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="media-card">
+				<img src="../../media/Music/Sigh no More/art.jpg" alt="Album 1">
+				<p class="title">Sigh No More</p>
+				<p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="media-card">
+				<img src="../../media/Music/Sigh no More/art.jpg" alt="Album 1">
+				<p class="title">Sigh No More</p>
+				<p class="artist">Mumford & Sons</p>
+			</div>
+			<div class="media-card">
+				<img src="../../media/Music/Sigh no More/art.jpg" alt="Album 1">
+				<p class="title">Sigh No More</p>
+				<p class="artist">Mumford & Sons</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="podcast-screen">
+    <header>
+		<h1>Podcasts</h1>
+		<img src="icons/sort.svg" class="sort-icon">
+		<img src="icons/filter.svg" class="filter-icon">
+		<img src="icons/search.svg" class="search-icon">
+    </header>
+    <div class="media-grid">
+        <div class="media-card">
+            <img src="../../media/Podcasts/HI.png" alt="Podcast 1">
+            <p class="title podcast">Hello Internet</p>
+        </div>
+        <div class="media-card">
+            <img src="../../media/Podcasts/HI.png" alt="Podcast 1">
+            <p class="title podcast">Hello Internet and a bunch of other words etc</p>
+        </div>
+        
+    </div>
+</div>
+
+<div id="audiobook-screen">
+    <header>
+		<h1>Audiobooks</h1>
+		<img src="icons/sort.svg" class="sort-icon">
+		<img src="icons/filter.svg" class="filter-icon">
+		<img src="icons/search.svg" class="search-icon">
+    </header>
+    <div class="media-grid">
+        <div class="media-card">
+            <img src="icons/book1.jpg" alt="Book 1">
+            <p class="title">Book 1</p>
+            <p class="artist">Author 1</p>
+        </div>
+        <div class="media-card">
+            <img src="icons/book2.jpg" alt="Book 2">
+            <p class="title">Book 2</p>
+            <p class="artist">Author 2</p>
+        </div>
+        <div class="media-card">
+            <img src="icons/book3.jpg" alt="Book 3">
+            <p class="title">Book 3</p>
+            <p class="artist">Author 3</p>
+        </div>
+    </div>
+</div>
+
+<div id="more-screen">
+    <header>
+		<h1>Settings</h1>
+    </header>
+    
+    <p>Placeholder for app settings, preferences, account info, etc.</p>
+</div>
+
+	
+	<div id="playback-bar" onclick="alert('Open now playing')">
+		<img class="album-art" src="../../media/Music/Sigh no More/art.jpg" />
+		<div class="playback-info">	
+			<p class="song">Sigh No More</p>
+			<p class="artist">Mumford and Sons</p>
+		</div>
+		<img class="play-pause" src="icons/pause.svg" id="play-pause" onclick="togglePlayPause()"/>
+	</div>
+	
+	<div id="navigation-bar">
+		<span class="media-type-selector">
+			<img src="icons/music.svg" class="music selected" />
+			<img src="icons/podcast.svg" class="podcast" />
+			<img src="icons/audiobook.svg" class="audiobook" />
+			<img src="icons/more.svg" class="dots" />
+		</span>
+	</div>
+</body>
+</html>
+
+
+<script src="bootstrap/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+<script>	
+
+</script>

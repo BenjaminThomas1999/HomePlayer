@@ -1,0 +1,391 @@
+@font-face {
+    font-family: 'MainFont'; /* Name you’ll use in CSS */
+    src: url('../data/Lexend/Lexend-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;  /* optional */
+    font-style: normal;   /* optional */
+}
+
+body {
+	margin: 0;
+	margin-top:8vh;
+	margin-bottom:20vh;
+	padding:0;
+	background: #000000;
+	color: white;
+	font-family: 'MainFont';
+	font-size: 32px;
+}
+
+h2{
+	font-size:3vh;
+	padding-top:1vh;
+	padding-left:1vh;
+}
+h5{
+	font-size:2vh;
+	padding-top:1vh;
+	padding-left:1vh;
+	font-weight:light;
+}
+
+.heading-row {
+    display: flex;
+    align-items: center;
+    width:100vw;
+}
+
+.heading-row h2 {
+    font-size: 3vh;
+    padding-top: 1vh;
+    padding-left: 1vh;
+}
+
+.heading-row h5 {
+    font-size: 2vh;
+    padding-right: 1vh;
+    font-weight: 300;
+    margin-left: auto; /* pushes right */
+}
+
+#navigation-bar {
+    display: flex;
+    justify-content: center;
+    padding: 1vh 1vw;
+    background-color: #111;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:98vw;
+    z-index:100;
+    
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#navigation-bar .media-type-selector img {
+	height: 3.5vh;
+    margin: 0 8vw;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+#navigation-bar .media-type-selector img.selected {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#playback-bar {
+    display: flex;
+    align-items: center;           /* vertically center items */
+    justify-content: space-between;/* space out icons and text */
+   /* padding: 0.8vh 2vw;            /* vertical + horizontal padding */
+    background-color: #2F4C39;
+    color: white;
+    position: fixed;
+    bottom: 7vh;
+    left: 1.5vw;                   /* center within 95vw width */
+    width: 97vw;
+    border-radius: 10px;
+    z-index: 101;                  /* corrected from z-index=101 */
+    box-shadow: 0 0 10px rgba(0,0,0,0.4); /* subtle shadow */
+}
+
+/* Album art */
+#playback-bar .album-art {
+    width: 12vw;                     /* scales with bar width */
+    max-width:8vh;
+    aspect-ratio: 1/1;              /* keep square */
+    border-radius: 8px;
+}
+
+/* Text */
+#playback-bar .playback-info p {
+    margin: 0;
+    margin-left:2vw;
+    line-height: 1.5;            /* compact vertical spacing */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#playback-bar .song {
+    font-weight: 700;
+    font-size: 2.2vh;
+}
+
+#playback-bar .artist {
+    font-weight: 300;
+    font-size: 1.8vh;
+    opacity: 0.8;
+}
+
+#playback-bar .playback-info {
+    flex: 1;                     /* fill available horizontal space */
+    margin: 0 1vw;               /* spacing between album art and button */
+    overflow: hidden;            /* hide overflow */
+    text-overflow: ellipsis;     /* add "..." for overflowing text */
+    white-space: nowrap;          /* keep text on one line */
+}
+
+/* Control buttons */
+#playback-bar .play-pause,
+#playback-bar .skip {
+    width: 7vw;                       /* scales with bar */
+    max-width:4vh;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    padding-right:2vw;
+}
+
+header {
+    height:8vh;
+    display: flex;
+    align-items: center;
+    position:fixed;
+    background:#111;
+    padding:0vw 1vw;
+    width:98vw;
+    z-index:100;
+    top:0;
+}
+
+header h1 {
+    margin: 0;
+    
+}
+
+header .sort-icon {
+    margin-left: auto;   /* pushes image to the right */
+    height: 4vh;         /* or whatever size fits */
+    opacity:0.8;
+}
+
+header .filter-icon {
+    margin-left:3vw;
+    height: 4vh;         /* or whatever size fits */
+    opacity:0.8;
+}
+
+header .search-icon {
+	margin-left:3vw;
+    height: 4vh;         /* or whatever size fits */
+    opacity:0.8;
+}
+
+header .library-search-field, header .database-search-field {
+	position:fixed;
+	top:0;
+	left:0;
+	font-size:2vh;
+	padding:1vh;
+	margin:1vh;
+	margin-top:1.5vh;
+	border-radius:10px;
+	width:calc(92vw - 17vh );
+	opacity: 1;
+	transition: opacity 0.2s ease;
+	border:none;
+	background:white;
+}
+
+header .database-search-field {
+	background:#FFD289;
+	display:none;
+	z-index:101;
+}
+
+.database-search-field.visible {
+display:block;
+}
+
+/* Hide scrollbar but keep scroll */
+.hide-scrollbar {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE/Edge legacy */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;                /* Chrome, Safari, WebKitGTK */
+}
+
+.toggle-button,  .toggle-button-small{
+  user-select: none;
+}
+
+.toggle-button input,  .toggle-button-small input{
+  display: none; /* hide the actual checkbox */
+}
+
+.toggle-button span,  .toggle-button-small span{
+	transition: 0.2s;
+	font-size:2.5vh;
+	border:3px solid #2F4C39;
+	padding:10px;
+	border-radius:10%;
+	margin:5px;
+	color:#578f69;
+}
+.toggle-button-small span {
+  font-size: 1.8vh;
+  padding: 5px 5px;
+  border-radius: 10px;
+  margin: 0px;
+  color: #578f69;
+}
+
+/* When checked, make the text bold */
+.toggle-button input:checked + span, 
+.toggle-button-small input:checked + span{
+	background:#2F4C39;
+	border-color:#2F4C39;
+	color:white;
+}
+
+/*
+----------- Music screen styling --------------
+*/
+
+#music-screen{
+	display:block;
+	margin:0;
+	padding:0;
+}
+
+
+
+.media-grid {
+	width:100vw;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2vw 1vw;
+    justify-content: center; /* centers cards horizontally */
+    gap: 1vw; /* optional, space between cards */
+}
+
+.media-card {
+    color: white;
+    border-radius: 10px;
+    width: 45vw;
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* aligns text/content to the left inside the card */
+}
+
+.media-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    margin-bottom: 1vh;
+}
+
+.media-card .title {
+    font-weight: 700;
+    font-size:2vh;
+    margin: 0;
+    margin-top:0.5vh;
+    text-align: left;
+/*
+    overflow: hidden;
+*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.media-card .title.podcast{
+	font-weight: 500;
+	font-size:2.5vh;
+}
+
+.media-card .artist {
+    font-weight: 300;
+    font-size:1.8vh;
+    margin: 0;
+    margin-top:0.1vh;
+    text-align: left;
+    opacity: 0.8;
+}
+
+
+.album-row, .playlist-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
+/*
+    scroll-snap-type: x mandatory;
+*/
+    padding-left:2vw;
+    width:98vw;
+}
+
+.album, .playlist {
+    flex: 0 0 auto;
+    width: 160px;
+    height: 200px;
+    scroll-snap-align: start;
+}
+
+.playlist {
+	height:180px;
+}
+
+.album img, .playlist img{
+	width:100%;
+    border-radius: 12px;
+    
+}
+
+.album .title, .playlist .title {
+    font-weight: 700;
+    font-size:2vh;
+    margin: 0;
+    margin-top:0.5vh;
+    text-align: left;
+/*
+    overflow: hidden;
+*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.playlist .title {
+	font-weight:500;
+}
+
+.album .artist {
+    font-weight: 300;
+    font-size:1.8vh;
+    margin: 0;
+    margin-top:0.1vh;
+    text-align: left;
+    opacity: 0.8;
+}
+
+
+
+/*
+----------- Podcast screen styling --------------
+*/
+
+#podcast-screen{
+	display:none;
+}
+
+/*
+----------- Audiobook screen styling --------------
+*/
+
+#audiobook-screen{
+	display:none;
+}
+
+/*
+----------- 'More' screen styling --------------
+*/
+
+#more-screen{
+	display:none;
+}
